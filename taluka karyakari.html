@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Political Leaders - तालुका कार्यकारणी</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fbe6f9;
+            color: #333;
+        }
+
+        header {
+            background-color: rgb(244, 53, 85);
+            color: rgb(255, 255, 0);
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            line-height: 1.4;
+        }
+
+        nav {
+            background: linear-gradient(90deg, rgba(244, 99, 123, 1) 0%, rgba(255, 255, 0, 1) 170%);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-start; /* Align items to the left */
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        .dropdown-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-content li {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dropdown-content li:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content li a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content li a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .main-content {
+            padding: 20px;
+            margin-top: 20px;
+            overflow-x: auto; /* Enable horizontal scrolling for tables */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: rgb(245, 126, 146);
+            color: #fff;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+
+        .member {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .member h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        /* Hamburger menu styles */
+        .menu-toggle {
+            display: none; /* Hidden by default */
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 20px;
+            }
+
+            .menu-toggle {
+                display: block; /* Show hamburger menu in mobile view */
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgb(244, 53, 85);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+                width: 100%;
+                padding: 10px 0;
+                border-bottom: 1px solid white;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .dropdown-content {
+                position: static;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nashik District Graduate Primary Teacher<br>Co-operative Credit Society Limited</h1>
+    </header>
+
+    <nav>
+        <div class="menu-toggle" id="hamburger">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="landing.html">Home</a></li>
+            <li><a href="#">Schemes</a></li>
+            <li><a href="#">Loans</a></li>
+            <li><a href="#">Services</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown('events')">Events</a>
+                <ul class="dropdown-content" id="events-dropdown">
+                    <li><a href="index.html">Event 1</a></li>
+                    <li><a href="event2.html">Event 2</a></li>
+                    <li><a href="event3.html">Event 3</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown('leaders')">Leaders</a>
+                <ul class="dropdown-content" id="leaders-dropdown">
+                    <li><a href="leaders.html">Karyakari Mandal</a></li>
+                    <li><a href="taluka karyakari.html">Taluka Karyakarni</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown('downloads')">Downloads</a>
+                <ul class="dropdown-content" id="downloads-dropdown">
+                    <li><a href="वार्षिक अहवाल २०२४.pdf" target="_blank">वार्षिक अहवाल २०२४.pdf</a></li>
+                    <li><a href="report2025.pdf" target="_blank">Annual Report 2025.pdf</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="member">
+        <h2>तालुका कार्यकारणी पदाधिकारी</h2>
+        <div class="main-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>अ.नं.</th>
+                        <th>तालुका</th>
+                        <th>अध्यक्ष</th>
+                        <th>सरचिटणीस</th>
+                        <th>कार्याध्यक्ष</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>१</td>
+                        <td>बागलाण</td>
+                        <td>श्री.प्रभाकर भामरे</td>
+                        <td>श्री.नितीन सावकार</td>
+                        <td>श्री.किरण अहिरे</td>
+                    </tr>
+                    <tr>
+                        <td>२</td>
+                        <td>चांदवड</td>
+                        <td>श्री.दयानंद अहिरे</td>
+                        <td>श्री.दिपक भदाणे</td>
+                        <td>श्री.संजय अहिरे</td>
+                    </tr>
+                    <tr>
+                        <td>३</td>
+                        <td>देवळा</td>
+                        <td>श्री.भरत सावंत</td>
+                        <td>श्री.प्रमोद अहिरराव</td>
+                        <td>श्री.जिभाऊ सुर्यवंशी</td>
+                    </tr>
+                    <tr>
+                        <td>४</td>
+                        <td>दिंडोरी</td>
+                        <td>श्री.जयदिप गायकवाड</td>
+                        <td>श्री.शिवाजी वाघ</td>
+                        <td>श्री.गोविंद ढेपले</td>
+                    </tr>
+                    <tr>
+                        <td>५</td>
+                        <td>इगतपुरी</td>
+                        <td>श्री.विजय पगारे</td>
+                        <td>श्री.अतुल अहिरे</td>
+                        <td>श्री.पंढरीनाथ कदम</td>
+                    </tr>
+                    <tr>
+                        <td>६</td>
+                        <td>कळवण</td>
+                        <td>श्री.निलेश भामरे</td>
+                        <td>श्री.संभाजी पवार</td>
+                        <td>श्री.सुरेश शेवाळे</td>
+                    </tr>
+                    <tr>
+                        <td>७</td>
+                        <td>मालेगाव</td>
+                        <td>श्री.विश्वास निकम</td>
+                        <td>श्री.दत्तात्रय भामरे</td>
+                        <td>श्री.रवींद्र जटिया</td>
+                    </tr>
+                    <tr>
+                        <td>८</td>
+                        <td>नांदगाव</td>
+                        <td>श्री.बाबूलाल ठोंबरे</td>
+                        <td>श्री.प्रकाश मोरे</td>
+                        <td>श्री.पंकज सोनवणे</td>
+                    </tr>
+                    <tr>
+                        <td>९</td>
+                        <td>निफाड</td>
+                        <td>श्री.शंकर रायते</td>
+                        <td>श्री.पांडुरंग देवरे</td>
+                        <td>श्री.बाबासाहेब आवारे</td>
+                    </tr>
+                    <tr>
+                        <td>१०</td>
+                        <td>नाशिक</td>
+                        <td>श्री.मुकुंद कुलकर्णी</td>
+                        <td>श्री.विवेक घोलप</td>
+                        <td>श्री.दत्तात्रय घुगे</td>
+                    </tr>
+                    <tr>
+                        <td>११</td>
+                        <td>पेठ</td>
+                        <td>श्री.शिवाजी गायकवाड</td>
+                        <td>श्री.रमेश महाले</td>
+                        <td>श्री.धर्माजी बैसाणे</td>
+                    </tr>
+                    <tr>
+                        <td>१२</td>
+                        <td>सुरगाणा</td>
+                        <td>श्री.संजय बागुल</td>
+                        <td>श्री.विनोद चव्हाण</td>
+                        <td>श्री.कृष्णा देशमुख</td>
+                    </tr>
+                    <tr>
+                        <td>१३</td>
+                        <td>सिन्नर</td>
+                        <td>श्री.अमोल झाडे</td>
+                        <td>श्री.विजय कोळी</td>
+                        <td>श्री.हिम्मत पावरा</td>
+                    </tr>
+                    <tr>
+                        <td>१४</td>
+                        <td>त्रंबकेश्वर</td>
+                        <td>श्री.कैलास सोनवणे</td>
+                        <td>श्री.मनोज शिवदे</td>
+                        <td>श्री.पंढरीनाथ नाईकवाडे</td>
+                    </tr>
+                    <tr>
+                        <td>१५</td>
+                        <td>येवला</td>
+                        <td>श्री.किरण कापसे</td>
+                        <td>श्री.सोमनाथ पोतदार</td>
+                        <td>श्रीम.संगीता पवार</td>
+                    </tr>
+                    <tr>
+                        <td>१६</td>
+                        <td>नाशिक मनपा</td>
+                        <td>श्री.राजू दातीर</td>
+                        <td>श्री.नितीन नानकर</td>
+                        <td>श्रीम.मनिषा निकम</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Nashik District Graduate Primary Teacher's Cooperative Credit Society Limited. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle Dropdown Function
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id + '-dropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function (event) {
+            var dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(function (dropdown) {
+                if (!dropdown.contains(event.target) && !event.target.matches('.dropdown a')) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        });
+
+        // Hamburger menu toggle for mobile
+        document.getElementById('hamburger').addEventListener('click', function () {
+            var navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

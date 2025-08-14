@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>काही क्षणचित्रे</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fbe6f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: rgb(244, 53, 85);
+            height: 50px;
+            color: rgb(255, 255, 0);
+            padding: 15px 30px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+        h2 {
+            text-align: center; /* Center the h2 heading */
+            margin: 20px 0; /* Add some margin for spacing */
+        }
+
+        /* Taskbar Navigation */
+        nav {
+            background: linear-gradient(90deg, rgba(244, 99, 123, 1) 0%, rgba(255, 255, 0, 1) 170%);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-start; /* Align items to the left */
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%; /* Ensures the dropdown opens below the nav */
+            left: 0;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 15px; /* Small gap below the nav */
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        .dropdown-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-content li {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #000000;
+        }
+
+        .dropdown-content li:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content li a:hover {
+            background-color: #646464;
+        }
+
+        .dropdown-content li strong {
+            font-size: 14px;
+            color: #ffffff;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+
+        .event-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Background for the container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    margin-top: 100px; /* Add margin to separate from title */
+    
+}
+.event {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.event img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding shadow */
+    border: 3px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition here */
+}
+
+.event img:hover {
+    object-fit: cover;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05); /* Slightly enlarge photo on hover */
+}
+
+.event-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.event:nth-child(even) {
+    flex-direction: row-reverse; /* Reverse the order for even events */
+}
+
+.event h2 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.event p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background-color: #ddd; /* Color of the line */
+    margin: 20px 0; /* Spacing around the line */
+}
+
+        /* Toggle Button */
+        .toggle-button {
+            margin: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(113, 112, 112) 100%);
+            color: rgb(255, 255, 255); /* Change text color to black */
+            border: black;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-button:hover {
+            background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(113, 112, 112) 100%);
+            transform: scale(1.05);
+            color: rgb(255, 255, 255); /* Ensure text remains black on hover */
+        }
+
+        .toggle-button:focus {
+            outline: none;
+        }
+        
+        /* Hamburger menu styles */
+        .menu-toggle {
+            display: none; /* Hidden by default */
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            body {
+        background-color: rgb(254, 224, 251); /* Temporary test to see if media query is firing */
+    }
+    .menu-toggle {
+        display: block; /* Show hamburger menu on mobile */
+        color: #ffffff;
+        background-color: black;
+        background-position: 50px;
+    }
+    
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgb(244, 53, 85);
+        position: absolute;
+        top: 52.5px; /* Adjusted to place navbar below the header */
+        left: 0;
+        z-index: 1000;
+        border: #333;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+        z-index: 1;
+        border-bottom: 1px solid white;
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none; /* Remove border from the last item */
+    }
+
+    .nav-links a {
+        font-size: 14px; /* Adjust font size if necessary */
+        padding: 10px 0;
+    }
+
+    nav {
+        padding: 10px 20px;
+        justify-content: space-between;
+        top: 80px;
+        height: 25px;
+    }
+
+    /* Header positioning */
+    header {
+        position: fixed; /* Make header fixed to the top */
+        top: 0;
+        width: 100%;
+        z-index: 999; /* Ensure the header stays above the navbar */
+    }
+
+    header h1 {
+        width: 100%;
+        font-size: 17px;
+        text-align: center;
+        left : 0px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 100px;
+        background-color: #ffffff;
+        margin: 100px 0 20 0; /* Adjust for mobile space */
+    }
+
+    .event {
+        display: flex;
+        flex-direction: column; /* Ensure column direction */
+        align-items: center; /* Center all items */
+    }
+
+    .event h3 {
+        order: 1; /* Ensure heading comes first */
+        font-size: 22px;
+        margin-bottom: 10px; /* Add space between heading and image */
+        text-align: center; /* Center-align the heading */
+    }
+
+    .event img {
+        order: 2; /* Ensure image comes after heading */
+        max-width: 90%; /* Limit the image size */
+        height: auto;
+        margin-bottom: 10px; /* Space between image and paragraph */
+    }
+
+    .event p {
+        order: 3; /* Ensure paragraph comes last */
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: center; /* Center-align the paragraph */
+    }
+    .event-container
+    {
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #ffffff; /* Background for the container */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        margin-top: 150px; /* Add margin to separate from title */
+        width: 80% ;
+    }
+            header h1 {
+                font-size: 20px;
+            }
+
+            .menu-toggle {
+                display: block; /* Show hamburger menu in mobile view */
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgb(244, 53, 85);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+                width: 100%;
+                padding: 10px 0;
+                border-bottom: 1px solid white;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .dropdown-content {
+                position: static;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+       
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Nashik District Graduate Primary Teacher<br>Co-operative Credit Society Limited</h1>
+    </header>
+
+    <!-- Taskbar Navigation (Horizontal, Below Header) -->
+    <nav>
+        <div class="menu-toggle" id="hamburger">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="landing.html">Home</a></li>
+            <li><a href="#">Schemes</a></li>
+            <li><a href="#">Loans</a></li>
+            <li><a href="#">Services</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown('events')">Events</a>
+                <ul class="dropdown-content" id="events-dropdown">
+                    <li><a href="index.html">Event 1</a></li>
+                    <li><a href="event2.html">Event 2</a></li>
+                    <li><a href="event3.html">Event 3</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown('leaders')">Leaders</a>
+                <ul class="dropdown-content" id="leaders-dropdown">
+                    <li><a href="leaders.html">Karyakari Mandal</a></li>
+                    <li><a href="taluka karyakari.html">Taluka Karyakarni</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown('downloads')">Downloads</a>
+                <ul class="dropdown-content" id="downloads-dropdown">
+                    <li><a href="वार्षिक अहवाल २०२४.pdf" target="_blank">वार्षिक अहवाल २०२४.pdf</a></li>
+                    <li><a href="report2025.pdf" target="_blank">Annual Report 2025.pdf</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <h2 id="section-title">काही क्षणचित्रे</h2>
+
+    <div class="event-container">
+        <!-- Event 1 -->
+        <div class="event">
+            <img src="EventsImg8.png" alt="Event 1 Image">
+            <div class="event-text">
+                <h2 id="event1-title">सत्कार</h2>
+                <p id="event1-description">पत्रकार श्री. विजय पगारे यांच्या संस्तेतर्फे सत्कार </p>
+            </div>
+        </div>
+
+        <!-- Separator Line -->
+        <hr class="separator">
+
+        <!-- Event 2 -->
+        <div class="event">
+            <div class="event-text">
+                <h2 id="event2-title">सदिच्छा भेट</h2>
+                <p id="event2-description">मा. आ. सत्यजीत तांबे यांची पतसंस्थेत सदिच्छा भेट समवेत श्री. धनाईत सर व चेअरमन श्री. महारू निकम व संचालक मंडळ.</p>
+            </div>
+            <img src="EventsImg2.png" alt="Event 2 Image">
+        </div>
+
+        <!-- Separator Line -->
+        <hr class="separator">
+
+        <!-- Event 3 -->
+        <div class="event">
+            <img src="EventsImg3.png" alt="Event 3 Image">
+            <div class="event-text">
+                <h2 id="event3-title">बैठक</h2>
+                <p id="event3-description">राज्यकार्यकारणी बैठक , पुणे.</p>
+            </div>
+        </div>
+
+        <!-- Separator Line -->
+        <hr class="separator">
+
+        <!-- Event 4 -->
+        <div class="event">
+            <div class="event-text">
+                <h2 id="event4-title">व्हा. चेअरमन पदी निवड</h2>
+                <p id="event4-description"> श्री. सगणे सर यांची व्हा. चेअरमन पदी निवड.</p>
+            </div>
+            <img src="EventsImg4.png" alt="Event 4 Image">
+        </div>
+
+        <!-- Separator Line -->
+        <hr class="separator">
+
+        <!-- Event 5 -->
+        <div class="event">
+            <img src="EventsImg5.png" alt="Event 5 Image">
+            <div class="event-text">
+                <h2 id="event5-title">संचालक भेठ</h2>
+                <p id="event5-description">ग. स. बँक धुळे , यांच्या पातसंस्थेच्या संचालकांची भेठ.</p>
+            </div>
+        </div>
+
+        <!-- Separator Line -->
+        <hr class="separator">
+
+        <!-- Event 6 -->
+        <div class="event">
+            <div class="event-text">
+                <h2 id="event6-title">तज्ञ संचालक पदी निवड</h2>
+                <p id="event6-description">चेअरमन श्री. महारू नानाजी निकम यांची N.D.P.T नाशिक येथे तज्ञ संचालक पदी निवड.</p>
+            </div>
+            <img src="EventsImg6.png" alt="Event 6 Image">
+        </div>
+
+        <!-- Separator Line -->
+        <hr class="separator">
+
+        <!-- Event 7 -->
+        <div class="event">
+            <img src="EventsImg7.png" alt="Event 7 Image">
+            <div class="event-text">
+                <h2 id="event7-title">सेवा निवृत्ती सत्कार</h2>
+                <p id="event7-description">संस्थेचे सभासद व संघटना जिल्हाध्यक्ष श्री. अंबादास अहिरे यांचा सेवा निवृत्ती निमित्त सत्कार.</p>
+            </div>
+        </div>
+
+        <!-- Separator Line -->
+        <hr class="separator">
+
+        <!-- Event 8 -->
+        <div class="event">
+            <div class="event-text">
+                <h2 id="event8-title">धनादेश</h2>
+                <p id="event8-description">कै. नामदेव सखाराम चौधरी (शाळा खोकरी) यांच्या वारसास संस्तेतर्फे धनादेश</p>
+            </div>
+            <img src="EventsImg1.png" alt="Event 8 Image">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Nashik District Graduate Primary Teacher's Cooperative Credit Society Limited. All rights reserved.</p>
+    </footer>
+
+    <script>
+
+        // Toggle Dropdown Function
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id + '-dropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function (event) {
+            var dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(function (dropdown) {
+                if (!dropdown.contains(event.target) && !event.target.matches('.dropdown a')) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        });
+
+        // Hamburger menu toggle for mobile
+        document.getElementById('hamburger').addEventListener('click', function () {
+            var navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

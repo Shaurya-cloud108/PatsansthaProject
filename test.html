@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संघटना प्रतिनिधी</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- SwiperJS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <style>
+    .swiper {
+      padding: 0;
+      position: relative;
+    }
+    .swiper-slide {
+      background: #fff;
+      border-radius: 1rem;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      transition: transform 0.3s ease;
+      width: 75%;
+    }
+    .swiper-slide.swiper-slide-next,
+    .swiper-slide.swiper-slide-prev {
+      opacity: 0.5;
+      transform: scale(0.92);
+    }
+    .swiper-slide.swiper-slide-active {
+      transform: scale(1.05);
+      z-index: 10;
+    }
+    .card-img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+    .swipe-hint {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-top: 1rem;
+      animation: swipe 1.2s infinite ease-in-out;
+    }
+    @keyframes swipe {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(8px);
+      }
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #1f2937;
+      background: rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 0.75rem;
+      border-radius: 9999px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      font-size: 1.5rem;
+      top: 45%;
+      width: auto;
+      height: auto;
+    }
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background: #f3f4f6;
+    }
+  </style>
+</head>
+<body class="bg-pink-100 py-6 px-4">
+
+  <!-- आमचे मार्गदर्शक Section -->
+  <h2 class="text-2xl font-bold text-center mb-6">आमचे मार्गदर्शक</h2>
+
+  <!-- Desktop Grid View -->
+  <div class="hidden md:grid grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+    <div class="bg-white rounded-xl p-4 shadow text-center">
+      <img src="sudhir tambe.png" alt="सुधीर तांबे" class="card-img">
+      <h3 class="font-semibold mt-2">मा. आमदार डॉ. सुधीर तांबे</h3>
+      <p class="text-gray-600 text-sm">विधान परिषद आमदार</p>
+    </div>
+    <div class="bg-white rounded-xl p-4 shadow text-center">
+      <img src="Raju Datir.png" alt="राजेश टोपे" class="card-img">
+      <h3 class="font-semibold mt-2">श्री. राजेश टोपे</h3>
+      <p class="text-gray-600 text-sm">माजी आरोग्यमंत्री</p>
+    </div>
+    <div class="bg-white rounded-xl p-4 shadow text-center">
+      <img src="anilpalande.png" alt="अनिल कदम" class="card-img">
+      <h3 class="font-semibold mt-2">श्री. अनिल कदम</h3>
+      <p class="text-gray-600 text-sm">जिल्हा प्रमुख</p>
+    </div>
+  </div>
+
+  <!-- Mobile Carousel View -->
+  <div class="md:hidden mb-12">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="sudhir tambe.png" alt="सुधीर तांबे" class="card-img">
+          <h3 class="font-semibold mt-2">मा. आमदार डॉ. सुधीर तांबे</h3>
+          <p class="text-gray-600 text-sm">विधान परिषद आमदार</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="Raju Datir.png" alt="राजेश टोपे" class="card-img">
+          <h3 class="font-semibold mt-2">श्री. राजेश टोपे</h3>
+          <p class="text-gray-600 text-sm">माजी आरोग्यमंत्री</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="anilpalande.png" alt="अनिल कदम" class="card-img">
+          <h3 class="font-semibold mt-2">श्री. अनिल कदम</h3>
+          <p class="text-gray-600 text-sm">जिल्हा प्रमुख</p>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    <div class="swipe-hint">← स्वाइप करून पुढील कार्ड पहा →</div>
+  </div>
+
+  <!-- संघटना प्रतिनिधी Section -->
+  <h2 class="text-2xl font-bold text-center mb-6">संघटना प्रतिनिधी</h2>
+
+  <!-- Desktop Grid View -->
+  <div class="hidden md:grid grid-cols-3 lg:grid-cols-4 gap-6">
+    <div class="bg-white rounded-xl p-4 shadow text-center">
+      <img src="shivaji thombare.png" alt="श्रीनिवास ठाकरे" class="card-img">
+      <h3 class="font-semibold mt-2">श्री. श्रीनिवास ठाकरे</h3>
+      <p class="text-gray-600 text-sm">राज्य कार्याध्यक्ष</p>
+    </div>
+    <div class="bg-white rounded-xl p-4 shadow text-center">
+      <img src="satyajeet tambe.png" alt="राहुल पाटील" class="card-img">
+      <h3 class="font-semibold mt-2">श्री. राहुल पाटील</h3>
+      <p class="text-gray-600 text-sm">तालुका संघटक</p>
+    </div>
+  </div>
+
+  <!-- Mobile Carousel View -->
+  <div class="md:hidden">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="satyajeet tambe.png" alt="श्रीनिवास ठाकरे" class="card-img">
+          <h3 class="font-semibold mt-2">श्री. श्रीनिवास ठाकरे</h3>
+          <p class="text-gray-600 text-sm">राज्य कार्याध्यक्ष</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="Raju Datir.png" alt="राहुल पाटील" class="card-img">
+          <h3 class="font-semibold mt-2">श्री. राहुल पाटील</h3>
+          <p class="text-gray-600 text-sm">तालुका संघटक</p>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    <div class="swipe-hint">← स्वाइप करून पुढील कार्ड पहा →</div>
+  </div>
+
+  <!-- SwiperJS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      spaceBetween: 30,
+      coverflowEffect: {
+        rotate: 20,
+        stretch: 0,
+        depth: 200,
+        modifier: 1,
+        slideShadows: true,
+      },
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</body>
+</html>

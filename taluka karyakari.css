@@ -1,0 +1,123 @@
+/* Taluka Karya Karni Page CSS */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fbe6f9;
+    color: #333;
+}
+
+header {
+    background-color: rgb(244, 53, 85);
+    height: 60px;
+    color: rgb(255, 255, 0);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content in header horizontally */
+    position: relative;
+    z-index: 1; /* Make sure header is under the navbar in mobile view */
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background: #003366;
+    padding: 10px 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    background: #005bb5;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+ /* Dropdown Menu Styles */
+ .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Ensures the dropdown opens below the nav */
+    left: 0;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 15px; /* Small gap below the nav */
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+}
+
+.dropdown-content li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content li a:hover {
+    background-color: #646464;
+}
+
+.dropdown-content li strong {
+    font-size: 14px;
+    color: #ffffff;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar a {
+        display: block;
+        padding: 10px;
+    }
+}

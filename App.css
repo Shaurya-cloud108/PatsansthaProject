@@ -1,0 +1,251 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fbe6f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: rgb(244, 53, 85);
+    height: 50px;
+    color: rgb(255, 255, 0);
+    padding: 15px 30px;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+h2 {
+    text-align: center; /* Center the h2 heading */
+    margin: 20px 0; /* Add some margin for spacing */
+}
+
+/* Taskbar Navigation */
+nav {
+    background: linear-gradient(90deg, rgba(244, 99, 123, 1) 0%, rgba(255, 255, 0, 1) 170%);
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 15px;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth animation for scaling text */
+}
+
+nav a:hover {
+    background-color: #444; /* Darker background on hover */
+    text-decoration: underline;
+    transform: scale(1.1); /* Slightly enlarge text and padding */
+}
+
+.vertical-separator {
+    border-left: 0.5px solid rgb(255, 255, 255); /* Color of the separator */
+    height: 35px; /* Height of the separator */
+    margin: 0 11px; /* Spacing around the separator */
+}
+
+/* Dropdown Menu Styles */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Ensures the dropdown opens below the nav */
+    left: 0;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 15px; /* Small gap below the nav */
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+}
+
+.dropdown-content li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content li a:hover {
+    background-color: #646464;
+}
+
+.dropdown-content li strong {
+    font-size: 14px;
+    color: #ffffff;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+}
+
+.event-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Background for the container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.event {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.event img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding shadow */
+    border: 3px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition here */
+}
+
+.event img:hover {
+    object-fit: cover;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05); /* Slightly enlarge photo on hover */
+}
+
+.event-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.event:nth-child(even) {
+    flex-direction: row-reverse; /* Reverse the order for even events */
+}
+
+.event h2 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.event p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background-color: #ddd; /* Color of the line */
+    margin: 20px 0; /* Spacing around the line */
+}
+
+/* Toggle Button */
+.toggle-button {
+    margin: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(113, 112, 112) 100%);
+    color: rgb(255, 255, 255); /* Change text color to black */
+    border: black;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-button:hover {
+    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(113, 112, 112) 100%);
+    transform: scale(1.05);
+    color: rgb(255, 255, 255); /* Ensure text remains black on hover */
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav {
+        height: auto; /* Allow height to adjust */
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    nav a {
+        display: none; /* Hide links by default */
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger menu */
+    }
+
+    .dropdown-content {
+        position: relative; /* Change position for dropdown */
+        width: 100%; /* Full width for dropdown */
+    }
+
+    .event {
+        flex-direction: column; /* Stack event image and text */
+        align-items: center; /* Center align items */
+    }
+
+    .event img {
+        width: 100%; /* Make images responsive */
+        max-width: 300px; /* Limit max width */
+    }
+
+    .event-text {
+        text-align: center; /* Center text for events */
+    }
+}

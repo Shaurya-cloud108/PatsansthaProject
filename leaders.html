@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaders - नाशिक जिल्हा पदवीधर प्राथमिक शिक्षक सहकारी पटसंस्था मर्यादित, नाशिक</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fbe6f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: rgb(244, 99, 123);
+            color: rgb(255, 255, 0);
+            padding: 15px 30px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        /* Taskbar Navigation */
+        nav {
+            background-color: #000000;
+            padding: 10px;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 1000;
+            box-sizing: border-box;
+            position: relative;
+            
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 15px;
+            transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth animation for scaling text */
+        }
+
+        nav a:hover {
+            background-color: #444; /* Darker background on hover */
+            text-decoration: underline;
+            transform: scale(1.1); /* Slightly enlarge text and padding */
+        }
+        
+
+        /* Dropdown Menu Styles */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%; /* Ensures the dropdown opens below the nav */
+            left: 0;
+            background-color: #171616;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 15px; /* Small gap below the nav */
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        .dropdown-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-content li {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .dropdown-content li:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content li a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content li a:hover {
+            background-color: #646464;
+        }
+
+        .dropdown-content li strong {
+            font-size: 14px;
+            color: #ffffff;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #ffffff;
+        }
+        .hero-section h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .hero-section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Additional Features */
+        .cta-button {
+            display: inline-block;
+            background-color: rgb(244, 99, 123);
+            color: #fff;
+            padding: 10px 20px;
+            margin-top: 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 18px;
+        }
+        .cta-button:hover {
+            background-color: #d85a78;
+        }
+
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+
+        /* Team Section */
+        .team-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .team-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .team-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        /* Row 1 (3 Members, Rectangle Shape) */
+        .row-1 .team-photo {
+            width: 170px; /* Fixed width */
+            height: 200px; /* Fixed height */
+            object-fit: cover; /* Ensure images cover the space without stretching */
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            border: 3px solid #ddd; /* Add border */
+        }
+        /* Hover effect for photos in row 1 */
+        .row-1 .team-photo:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05); /* Slightly enlarge photo on hover */
+        }
+        /* Row 2 to Row 4 (4 Members Each, Add Border and Shadow for Row 2 Photos) */
+        .team-photo-small {
+            width: 150px; /* Fixed width */
+            height: 170px; /* Fixed height */
+            object-fit: cover; /* Maintain aspect ratio, avoid stretching */
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding shadow */
+            border: 3px solid #ddd; /* Adding border */
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect for photos in row 2 */
+        .team-photo-small:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05); /* Slightly enlarge photo on hover */
+        }
+
+        /* Row-specific Flexbox */
+        .team-row-3, .team-row-4, .team-row-5 {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .team-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .team-position {
+            color: #777;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .team-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-photo, .team-photo-small {
+                width: 100%; /* Full width on smaller screens */
+                max-width: 250px; /* Limit width on small screens */
+                height: auto; /* Auto height for flexibility */
+            }
+
+            .team-section h2 {
+                font-size: 28px;
+            }
+
+            .team-name {
+                font-size: 16px;
+            }
+
+            .team-position {
+                font-size: 14px;
+            }
+
+            .team-row-3, .team-row-4, .team-row-5 {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>नाशिक जिल्हा पदवीधर प्राथमिक शिक्षक सहकारी पटसंस्था मर्यादित, नाशिक</h1>
+    </header>
+
+    <!-- Taskbar Navigation (Horizontal, Below Header) -->
+    <nav>
+        <a href="landing.html">Home</a>
+        <a href="#">Schemes</a>
+        <a href="#">Loans</a>
+        <a href="#">Services</a>
+
+            <!-- Dropdown for Events -->
+        <div class="dropdown events-dropdown">
+            <a href="javascript:void(0)" onclick="toggleEventsDropdown()">Events</a>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="event1.html">Event 1</a></li>
+                    <li><a href="event2.html">Event 2</a></li>
+                    <li><a href="event3.html">Event 3</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Dropdown for Leaders -->
+        <div class="dropdown leaders-dropdown">
+            <a href="javascript:void(0)" onclick="toggleLeadersDropdown()">Leaders</a>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="leaders.html">कार्यकारी मंडळ</a></li>
+                    <li><a href="taluka karyakari.html">तालुका कार्यकारणी</a></li>
+                    <li><a href="#">Leader 2 - Political</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Dropdown for Downloads -->
+        <div class="dropdown downloads-dropdown">
+            <a href="javascript:void(0)" onclick="toggleDownloadsDropdown()">Downloads</a>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="वार्षिक अहवाल २०२४.pdf" target="_blank">वार्षिक अहवाल २०२४.pdf</a></li>
+                    <li><a href="report2025.pdf" target="_blank">Annual Report 2025.pdf</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="#">Contact Us</a>
+    </nav>
+
+    <!-- Team Members Section -->
+    <section class="team-section">
+        <h2>कार्यकारी मंडल सन २०२२ ते २०२७</h2>
+        <!-- Row 1 (3 Members, Rectangle Shape) -->
+        <div class="team-row row-1">
+            <!-- Member 1 -->
+            <div class="team-member">
+                <img src="maharunikam.png" alt="Leader 1" class="team-photo">
+                <p class="team-name">श्री.महारू निकम</p>
+                <p class="team-position">चेअरमन</p>
+            </div>
+            <!-- Member 2 -->
+            <div class="team-member">
+                <img src="sanje.png" alt="Leader 2" class="team-photo">
+                <p class="team-name">श्री.धनराज सगणे</p>
+                <p class="team-position">व्हा चेअरमन</p>
+            </div>
+            <!-- Member 3 -->
+            <div class="team-member">
+                <img src="naikwade.png" alt="Leader 3" class="team-photo">
+                <p class="team-name">श्री.पंढरीनाथ नाईकवाडे</p>
+                <p class="team-position">सचिव</p>
+            </div>
+        </div>
+
+        <!-- Row 2 to Row 4 (4 Members Each, Add Border and Shadow for Row 2 Photos) -->
+        <h3>संचालक</h3>
+        <div class="team-row team-row-2">
+            <!-- Member 4 -->
+            <div class="team-member">
+                <img src="vijaynikam.png" alt="Leader 4" class="team-photo-small">
+                <p class="team-name">श्री.विजय निकम</p>
+            </div>
+            <!-- Member 5 -->
+            <div class="team-member">
+                <img src="kailas nikam.png" alt="Leader 5" class="team-photo-small">
+                <p class="team-name">श्री..कैलास निकम</p>
+            </div>
+            <!-- Member 6 -->
+            <div class="team-member">
+                <img src="jhade.png" alt="Leader 6" class="team-photo-small">
+                <p class="team-name">श्री.अमोल झाडे</p>
+            </div>
+            <!-- Member 7 -->
+            <div class="team-member">
+                <img src="nitinnankar.png" alt="Leader 7" class="team-photo-small">
+                <p class="team-name">श्री.नितीन नानकर</p>
+            </div>
+        </div>
+
+        <div class="team-row team-row-3">
+            <!-- Member 8 -->
+            <div class="team-member">
+                <img src="Bhagwat Chaudhari.png" alt="Leader 8" class="team-photo-small">
+                <p class="team-name">श्री.भागवत चौधरी</p>
+            </div>
+            <!-- Member 9 -->
+            <div class="team-member">
+                <img src="Karbhari Gavande.png" alt="Leader 9" class="team-photo-small">
+                <p class="team-name">श्री.कारभारी गवांडे</p>
+            </div>
+            <!-- Member 10 -->
+            <div class="team-member">
+                <img src="Sambhaji Pawar.png" alt="Leader 10" class="team-photo-small">
+                <p class="team-name">श्री.संभाजी पवार</p>
+            </div>
+            <!-- Member 11 -->
+            <div class="team-member">
+                <img src="Bhaskar Bagul.png" alt="Leader 11" class="team-photo-small">
+                <p class="team-name">श्री.भास्कर बागूल</p>
+            </div>
+        </div>
+
+        <div class="team-row team-row-3">
+            <!-- Member 8 -->
+            <div class="team-member">
+                <img src="Atul Ahire.png" alt="Leader 8" class="team-photo-small">
+                <p class="team-name">श्री.अतुल अहिरे</p>
+            </div>
+            <!-- Member 9 -->
+            <div class="team-member">
+                <img src="Raju Datir.png" alt="Leader 9" class="team-photo-small">
+                <p class="team-name">श्री.राजू दातीर</p>
+            </div>
+            <!-- Member 10 -->
+            <div class="team-member">
+                <img src="Sarla Bachhav.png" alt="Leader 10" class="team-photo-small">
+                <p class="team-name">श्रीम.सरल बच्छाव</p>
+            </div>
+            <!-- Member 11 -->
+            <div class="team-member">
+                <img src="Sangeeta Pawar.png" alt="Leader 11" class="team-photo-small">
+                <p class="team-name">श्रीम.संगीता पवार</p>
+            </div>
+        </div>
+
+        <!-- Row 5 (3 Members) -->
+        <div class="team-row team-row-5">
+            <!-- Member 12 -->
+            <div class="team-member">
+                <img src="Baburao Thombare.png" alt="Leader 12" class="team-photo-small">
+                <p class="team-name">श्री.बाबुराव ठोंबरे</p>
+                <p class="team-position">स्वीकृत संचालक</p>
+            </div>
+            <!-- Member 13 -->
+            <div class="team-member">
+                <img src="Ashok Kunde.png" alt="Leader 13" class="team-photo-small">
+                <p class="team-name">श्री.अशोक कुंदे</p>
+                <p class="team-position">मदतनीस</p>
+            </div>
+            <!-- Member 14 -->
+            <div class="team-member">
+                <img src="Mangesh Thombare.png" alt="Leader 14" class="team-photo-small">
+                <p class="team-name">श्री.मंगेश ठोंबरे</p>
+                <p class="team-position">लिपिक</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Nashik District Graduate Primary Teacher's Cooperative Credit Society Limited. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle Dropdown for Events
+        function toggleEventsDropdown() {
+    var eventsDropdown = document.querySelector('.events-dropdown .dropdown-content');
+    var leadersDropdown = document.querySelector('.leaders-dropdown .dropdown-content');
+    var downloadsDropdown = document.querySelector('.downloads-dropdown .dropdown-content');
+
+    // Toggle the events dropdown
+    eventsDropdown.classList.toggle('show');
+
+    // Close other dropdowns if they are open
+    if (leadersDropdown.classList.contains('show')) {
+        leadersDropdown.classList.remove('show');
+    }
+    if (downloadsDropdown.classList.contains('show')) {
+        downloadsDropdown.classList.remove('show');
+    }
+}
+
+        // Toggle Dropdown for Leaders
+        function toggleLeadersDropdown() {
+            var leadersDropdown = document.querySelector('.leaders-dropdown .dropdown-content');
+            var downloadsDropdown = document.querySelector('.downloads-dropdown .dropdown-content');
+            var eventsDropdown = document.querySelector('.events-dropdown .dropdown-content');
+            leadersDropdown.classList.toggle('show');
+
+            // Close the Downloads dropdown if it's open
+            if (downloadsDropdown.classList.contains('show')) {
+                downloadsDropdown.classList.remove('show');
+            }
+            if (eventsDropdown.classList.contains('show')) {
+                eventsDropdown.classList.remove('show');
+            }
+        }
+
+        // Toggle Dropdown for Downloads
+        function toggleDownloadsDropdown() {
+            var downloadsDropdown = document.querySelector('.downloads-dropdown .dropdown-content');
+            var leadersDropdown = document.querySelector('.leaders-dropdown .dropdown-content');
+            var eventsDropdown = document.querySelector('.events-dropdown .dropdown-content');
+            downloadsDropdown.classList.toggle('show');
+
+            // Close the Leaders dropdown if it's open
+            if (leadersDropdown.classList.contains('show')) {
+                leadersDropdown.classList.remove('show');
+            }
+            if (eventsDropdown.classList.contains('show')) {
+                eventsDropdown.classList.remove('show');
+            }
+        }
+
+        // Close dropdown if clicked outside
+        document.addEventListener('click', function (event) {
+            var leadersDropdown = document.querySelector('.leaders-dropdown .dropdown-content');
+            var downloadsDropdown = document.querySelector('.downloads-dropdown .dropdown-content');
+            var eventsDropdown = document.querySelector('.events-dropdown .dropdown-content');
+
+            if (!leadersDropdown.contains(event.target) && !event.target.matches('.leaders-dropdown a')) {
+                leadersDropdown.classList.remove('show');
+            }
+            if (!eventsDropdown.contains(event.target) && !event.target.matches('.events-dropdown a')) {
+                eventsDropdown.classList.remove('show');
+            }
+            if (!downloadsDropdown.contains(event.target) && !event.target.matches('.downloads-dropdown a')) {
+                downloadsDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

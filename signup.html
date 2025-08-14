@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - नाशिक जिल्हा पदवीधर प्राथमिक शिक्षक सहकारी पटसंस्था मर्यादित, नाशिक</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            background-color: rgb(244, 99, 123);
+            color: rgb(255, 255, 0);
+            padding: 15px 30px;
+            text-align: center;
+            width: 100%;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+        .main-container {
+            display: flex;
+            flex: 1;
+        }
+        .left-section {
+            flex: 1;
+            background: url('1.png') no-repeat center center;
+            background-size: cover; /* Ensures the background covers the full left section */
+            height: 100vh; /* Ensure the background image covers the full height */
+        }
+        .right-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .box {
+            background-color: black;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .box h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .box form {
+            display: flex;
+            flex-direction: column;
+        }
+        .box input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: white;
+        }
+        .box button {
+            padding: 10px;
+            border: none;
+            background-color: blue;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .box button:hover {
+            background-color: #0056b3;
+        }
+        .otp-message {
+            font-size: 16px;
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>नाशिक जिल्हा पदवीधर प्राथमिक शिक्षक सहकारी पटसंस्था मर्यादित, नाशिक</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="left-section"></div>
+        <div class="right-section">
+            <div class="box">
+                <h1>Sign Up</h1>
+                <form id="signupForm">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required pattern="^\+?[0-9]{10,15}$">
+                    <button type="submit">Send OTP</button>
+                </form>
+                <p class="otp-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateOtp() {
+            const otp = Math.floor(100000 + Math.random() * 900000); // Generate a random 6-digit OTP
+            return otp;
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const phoneNumber = document.querySelector('input[name="phone"]').value;
+            const otp = generateOtp();
+            console.log(`OTP sent to ${phoneNumber}: ${otp}`); // Simulate sending OTP
+
+            localStorage.setItem('generatedOtp', otp); // Store OTP in localStorage
+            document.querySelector('.otp-message').innerText = `OTP sent: ${otp}`;
+            setTimeout(() => {
+                window.location.href = 'otp.html'; // Redirect to OTP page after 2 seconds
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

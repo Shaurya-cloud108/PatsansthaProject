@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers' Union Association - Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('Screenshot (2).png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .container h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .container form {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .container input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .container button {
+            padding: 10px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function handleSignUp(event) {
+            event.preventDefault();
+            
+            // Simulate sending OTP
+            const phoneNumber = document.querySelector('input[name="phone"]').value;
+
+            // This is a mock function. In a real-world case, you'd send the OTP via an API
+            console.log(`OTP sent to ${phoneNumber}`);
+            
+            // After sending OTP, redirect to OTP page
+            window.location.href = '/otp.html'; // Redirecting to the OTP page
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up - Teachers' Union Association</h1>
+        <form onsubmit="handleSignUp(event)">
+            <!-- Name input -->
+            <input type="text" name="name" placeholder="Name" required>
+
+            <!-- Phone Number input -->
+            <input type="tel" name="phone" placeholder="Phone Number" required pattern="^\+?[0-9]{10,15}$" title="Phone number should be between 10-15 digits">
+
+            <button type="submit">Send OTP</button>
+        </form>
+    </div>
+</body>
+</html>

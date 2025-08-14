@@ -1,0 +1,340 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fbe6f9;
+    color: #333;
+}
+
+header {
+    background-color: rgb(244, 53, 85);
+    height: 60px;
+    color: rgb(255, 255, 0);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content in header horizontally */
+    position: relative;
+    z-index: 1; /* Make sure header is under the navbar in mobile view */
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+}
+
+h2 {
+    align-items: center;
+    margin: 20px 0;
+    background-color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+    width: fit-content;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 40px 0 20px 0; /* Ensure there's space below the fixed header */
+    
+}
+.menu-toggle {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    color: white;
+    position: absolute;
+    top: 80px;
+    left: 20px; /* Align hamburger menu to the left */
+}
+
+.toggle-button {
+    background: black;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: grey;
+}
+
+nav {
+    background: linear-gradient(90deg, rgba(244, 99, 123, 1) 0%, rgba(255, 255, 0, 1) 170%);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2; /* Navbar should be on top in mobile view */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+.vertical-separator {
+    border-left: 0.5px solid rgb(255, 255, 255); /* Color of the separator */
+    height: 35px; /* Height of the separator */
+
+    margin: 0 11px; /* Spacing around the separator */
+}
+
+ /* Dropdown Menu Styles */
+ .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Ensures the dropdown opens below the nav */
+    left: 0;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 15px; /* Small gap below the nav */
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+}
+
+.dropdown-content li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content li a:hover {
+    background-color: #646464;
+}
+
+.dropdown-content li strong {
+    font-size: 14px;
+    color: #ffffff;
+    margin-top: 10px;
+    display: block;
+}
+
+.event-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Background for the container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    margin-top: 100px; /* Add margin to separate from title */
+    
+}
+.event {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.event img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding shadow */
+    border: 3px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition here */
+}
+
+.event img:hover {
+    object-fit: cover;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05); /* Slightly enlarge photo on hover */
+}
+
+.event-text {
+    padding: 20px;
+    flex: 1;
+}
+
+.event:nth-child(even) {
+    flex-direction: row-reverse; /* Reverse the order for even events */
+}
+
+.event h2 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.event p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background-color: #ddd; /* Color of the line */
+    margin: 20px 0; /* Spacing around the line */
+}
+
+footer {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        background-color: rgb(254, 224, 251); /* Temporary test to see if media query is firing */
+    }
+    .menu-toggle {
+        display: block; /* Show hamburger menu on mobile */
+        color: #ffffff;
+        background-color: black;
+        background-position: 50px;
+    }
+    
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgb(244, 53, 85);
+        position: absolute;
+        top: 52.5px; /* Adjusted to place navbar below the header */
+        left: 0;
+        z-index: 1000;
+        border: #333;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+        z-index: 1;
+        border-bottom: 1px solid white;
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none; /* Remove border from the last item */
+    }
+
+    .nav-links a {
+        font-size: 14px; /* Adjust font size if necessary */
+        padding: 10px 0;
+    }
+
+    nav {
+        padding: 10px 20px;
+        justify-content: space-between;
+        top: 80px;
+        height: 25px;
+    }
+
+    /* Header positioning */
+    header {
+        position: fixed; /* Make header fixed to the top */
+        top: 0;
+        width: 100%;
+        z-index: 999; /* Ensure the header stays above the navbar */
+    }
+
+    header h1 {
+        width: 100%;
+        font-size: 17px;
+        text-align: center;
+        left : 0px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 100px;
+        background-color: #ffffff;
+        margin: 100px 0 20 0; /* Adjust for mobile space */
+    }
+
+    .event {
+        display: flex;
+        flex-direction: column; /* Ensure column direction */
+        align-items: center; /* Center all items */
+    }
+
+    .event h3 {
+        order: 1; /* Ensure heading comes first */
+        font-size: 22px;
+        margin-bottom: 10px; /* Add space between heading and image */
+        text-align: center; /* Center-align the heading */
+    }
+
+    .event img {
+        order: 2; /* Ensure image comes after heading */
+        max-width: 90%; /* Limit the image size */
+        height: auto;
+        margin-bottom: 10px; /* Space between image and paragraph */
+    }
+
+    .event p {
+        order: 3; /* Ensure paragraph comes last */
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: center; /* Center-align the paragraph */
+    }
+    .event-container
+    {
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #ffffff; /* Background for the container */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        margin-top: 150px; /* Add margin to separate from title */
+        width: 80% ;
+    }
+}
